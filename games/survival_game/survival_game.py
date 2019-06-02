@@ -126,6 +126,7 @@ health = 10
 hydration = 50
 warmth = 50
 campfire_health = 0
+time = 0
 
 
 def tick_update():
@@ -139,8 +140,18 @@ def tick_update():
     global rock_health
     global campfire_health
     global heat
+    global time
     food_left -= 1
     hydration -= 1
+    time += 1
+
+    if time >= 12:
+        wn.bgcolor('Dim Gray')
+        warmth -= 1
+
+    if time >= 24:
+        time = 0
+        wn.bgcolor('Sea Green')
 
     if heat == True:
         campfire_health -= 1
@@ -158,8 +169,9 @@ def tick_update():
         turtle.setpos(-110, 0)
         turtle.color('red')
         turtle.write("WASTED", font=("Comic Sans MS", 45, "normal"))
-    print('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s, campfire health: %s' %
-          (food_left, berries,  health, hydration, warmth, sticks, rocks, campfire_health))
+    print('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s,'
+          ' campfire health: %s, time: %s'
+          % (food_left, berries,  health, hydration, warmth, sticks, rocks, campfire_health, time))
 
     if food_left >= 50:
         food_left = 50
