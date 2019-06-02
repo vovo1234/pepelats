@@ -169,9 +169,15 @@ def tick_update():
         turtle.setpos(-110, 0)
         turtle.color('red')
         turtle.write("WASTED", font=("Comic Sans MS", 45, "normal"))
-    print('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s,'
+
+    turtle.penup()
+    turtle.undo()
+    turtle.hideturtle()
+    turtle.penup()
+    turtle.setpos(-300, 270)
+    turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s,'
           ' campfire health: %s, time: %s'
-          % (food_left, berries,  health, hydration, warmth, sticks, rocks, campfire_health, time))
+          % (food_left, berries,  health, hydration, warmth, sticks, rocks, campfire_health, time), font=("Comic Sans MS", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
