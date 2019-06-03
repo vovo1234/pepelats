@@ -1,7 +1,9 @@
-import turtle, time, random
+import turtle
+import random
 
 wn = turtle.Screen()
 wn.bgcolor('Sea Green')
+wn.title('Survive')
 
 player = turtle.Turtle()
 player.color('Pale Goldenrod')
@@ -65,8 +67,7 @@ bush_health = random.randint(1, 5)
 
 
 def collect_berries():
-    global berries
-    global bush_health
+    global berries, bush_health
     if player.distance(bush) < 50:
         berries += 1
         bush_health -= 1
@@ -77,8 +78,7 @@ stick_health = random.randint(1, 3)
 
 
 def collect_stick():
-    global sticks
-    global stick_health
+    global sticks, stick_health
     if player.distance(stick) < 20:
         sticks += 1
         stick_health -= 1
@@ -89,16 +89,14 @@ rock_health = random.randint(1, 2)
 
 
 def collect_rock():
-    global rocks
-    global rock_health
+    global rocks, rock_health
     if player.distance(rock) < 20:
         rocks += 1
         rock_health -= 1
 
 
 def eat():
-    global food_left
-    global berries
+    global food_left, berries
     if berries > 0:
         food_left += 10
         berries -= 1
@@ -108,10 +106,7 @@ heat = False
 
 
 def build_campfire():
-    global rocks
-    global sticks
-    global heat
-    global campfire_health
+    global rocks, sticks, heat, campfire_health
     if rocks >= 2 and sticks >= 2:
         fire.setpos(player.xcor(), player.ycor())
         fire.showturtle()
@@ -130,17 +125,7 @@ time = 0
 
 
 def tick_update():
-    global food_left
-    global berries
-    global health
-    global hydration
-    global warmth
-    global bush_health
-    global stick_health
-    global rock_health
-    global campfire_health
-    global heat
-    global time
+    global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health, campfire_health, heat, time
     food_left -= 1
     hydration -= 1
     time += 1
@@ -170,22 +155,21 @@ def tick_update():
         turtle.color('red')
         turtle.write("WASTED", font=("Comic Sans MS", 45, "normal"))
 
-    turtle.penup()
     turtle.undo()
     turtle.hideturtle()
     turtle.penup()
     turtle.setpos(-300, 270)
     turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s,'
           ' campfire health: %s, time: %s'
-          % (food_left, berries,  health, hydration, warmth, sticks, rocks, campfire_health, time), font=("Comic Sans MS", 7, "normal"))
+          % (food_left, berries,  health, hydration, warmth, sticks,
+             rocks, campfire_health, time), font=("Comic Sans MS", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
 
     if player.distance(water) < 50:
         hydration += 2
-        warmth -= 1\
-
+        warmth -= 1
 
     if hydration >= 50:
         hydration = 50
@@ -201,7 +185,6 @@ def tick_update():
 
     if player.distance(fire) <= 15 and heat == True:
         warmth += 2
-
 
     if stick_health <= 0:
         stick.setpos(random.randint(-275, 275), random.randint(-275, 275))
