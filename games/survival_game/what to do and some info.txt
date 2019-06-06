@@ -1,0 +1,25 @@
+How to Play and Survival Mechanics:
+Try to survive for as long as you can!
+
+.Every object beside the pond and the tree have health. Once this health goes to 0, it will spawn a new one of those objects somewhere on the map, and its health is reset.
+
+.To raise your food left, collect berries by walking up and touching the bush (the green circle), and pressing "b". After that press "1" to eat them.
+
+.To collect rocks, walk up and touch the rock, and then press "r".
+
+.To raise you hydration walk into the pond (the blue circle), but watch your warmth. when in the pond your warmth will go down, and hydration will go up. The pond has no health so it is a infinite source of water.
+
+.When the background goes gray, that means its night. It will start at 12 time, and end at time 24. This will also lower you warmth.
+
+.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press c. A campfire will appear were you are standing. You can only have 1 campfire at once. After you have built one, it will only last 30 seconds. Then you will have to build a new one.
+
+.To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree, and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
+
+
+
+Planned Updates:
+(better graphics)
+
+
+
+Email basil.solovyev@gmail.com, or leave a issue on Github if there are any bugs.
