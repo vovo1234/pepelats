@@ -39,6 +39,13 @@ rock.turtlesize(0.5)
 rock.penup()
 rock.setpos(random.randint(-275, 275), random.randint(-275, 275))
 
+tree = turtle.Turtle()
+tree.color('Dark Green')
+tree.shape('triangle')
+tree.turtlesize(3)
+tree.penup()
+tree.setpos(random.randint(-275, 275), random.randint(-275, 275))
+
 fire = turtle.Turtle()
 fire.color('yellow')
 fire.shape('circle')
@@ -73,14 +80,14 @@ def collect_berries():
         bush_health -= 1
 
 
-sticks = 0
+wood = 0
 stick_health = random.randint(1, 3)
 
 
 def collect_stick():
-    global sticks, stick_health
+    global wood, stick_health
     if player.distance(stick) < 20:
-        sticks += 1
+        wood += 1
         stick_health -= 1
 
 
@@ -95,6 +102,12 @@ def collect_rock():
         rock_health -= 1
 
 
+def collect_tree():
+    global wood, axe
+    if player.distance(tree) < 50 and axe == True:
+        wood += 2
+
+
 def eat():
     global food_left, berries
     if berries > 0:
@@ -106,14 +119,23 @@ heat = False
 
 
 def build_campfire():
-    global rocks, sticks, heat, campfire_health
-    if rocks >= 2 and sticks >= 2:
+    global rocks, wood, heat, campfire_health
+    if rocks >= 2 and wood >= 2:
         fire.setpos(player.xcor(), player.ycor())
         fire.showturtle()
         heat = True
-        sticks -= 2
+        wood -= 2
         rocks -= 2
         campfire_health = 30
+
+
+axe = False
+
+
+def craft_axe():
+    global rock, wood, axe
+    if rocks >= 7 and wood >= 7:
+        axe = True
 
 
 food_left = 50
@@ -143,6 +165,7 @@ def tick_update():
 
     if campfire_health <= 0:
         heat == False
+        campfire_health = 0
         fire.hideturtle()
 
     if food_left <= 0:
@@ -153,16 +176,16 @@ def tick_update():
         turtle.penup()
         turtle.setpos(-110, 0)
         turtle.color('red')
-        turtle.write("WASTED", font=("Comic Sans MS", 45, "normal"))
+        turtle.write("WASTED", font=("Arial", 45, "normal"))
 
     turtle.undo()
     turtle.hideturtle()
     turtle.penup()
     turtle.setpos(-300, 270)
-    turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, sticks: %s, rocks: %s,'
+    turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s,'
           ' campfire health: %s, time: %s'
-          % (food_left, berries,  health, hydration, warmth, sticks,
-             rocks, campfire_health, time), font=("Comic Sans MS", 7, "normal"))
+          % (food_left, berries,  health, hydration, warmth, wood,
+             rocks, campfire_health, time), font=("aarial", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
@@ -210,6 +233,8 @@ turtle.onkeypress(eat, '1')
 turtle.onkeypress(collect_stick, 's')
 turtle.onkeypress(collect_rock, 'r')
 turtle.onkeypress(build_campfire, 'c')
+turtle.onkeypress(craft_axe, 'a')
+turtle.onkeypress(collect_tree, 'w')
 
 tick_update()
 
