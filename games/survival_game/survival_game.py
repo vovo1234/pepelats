@@ -47,10 +47,19 @@ tree.penup()
 tree.setpos(random.randint(-275, 275), random.randint(-275, 275))
 
 fire = turtle.Turtle()
+fire.hideturtle()
 fire.color('yellow')
 fire.shape('circle')
 fire.penup()
-fire.hideturtle()
+
+
+zombie = turtle.Turtle()
+zombie.hideturtle()
+zombie.color('green')
+zombie.shape('circle')
+zombie.turtlesize(2)
+zombie.penup()
+zombie.setpos(random.randint(-275, 275), random.randint(-275, 275))
 
 
 def up():
@@ -104,7 +113,7 @@ def collect_rock():
 
 def collect_tree():
     global wood, axe
-    if player.distance(tree) < 50 and axe == True:
+    if player.distance(tree) < 50 and axe is True:
         wood += 2
 
 
@@ -144,27 +153,58 @@ hydration = 50
 warmth = 50
 campfire_health = 0
 time = 0
+night = False
+zombie_attack = False
 
 
 def tick_update():
-    global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health, campfire_health, heat, time
+    global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health,\
+        campfire_health, heat, time, night, zombie_attack
     food_left -= 1
     hydration -= 1
     time += 1
 
+    if night is True:
+        zombie.showturtle()
+        zombie_attack = True
+        if zombie.ycor() > player.ycor():
+            zombie.setpos(zombie.xcor(), zombie.ycor() - 7)
+
+        if zombie.ycor() < player.ycor():
+            zombie.setpos(zombie.xcor(), zombie.ycor() + 7)
+
+        if zombie.xcor() > player.xcor():
+            zombie.setpos(zombie.xcor() - 7, zombie.ycor())
+
+        if zombie.xcor() < player.xcor():
+            zombie.setpos(zombie.xcor() + 7, zombie.ycor())
+
     if time >= 12:
         wn.bgcolor('Dim Gray')
         warmth -= 1
+        night = True
+        zombie_attack = True
+
+    if zombie_attack is True:
+        if zombie.distance(player) < 30:
+            health -= 1
+
+    if health > 10:
+        health = 10
+
+    if food_left >= 45 and hydration >= 45:
+        health += 1
 
     if time >= 24:
         time = 0
         wn.bgcolor('Sea Green')
+        night = False
 
-    if heat == True:
+    if heat is True:
         campfire_health -= 1
 
     if campfire_health <= 0:
-        heat == False
+        heat = False
         campfire_health = 0
         fire.hideturtle()
 
@@ -184,8 +224,8 @@ def tick_update():
     turtle.setpos(-300, 270)
     turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s,'
           ' campfire health: %s, time: %s'
-          % (food_left, berries,  health, hydration, warmth, wood,
-             rocks, campfire_health, time), font=("aarial", 7, "normal"))
+            % (food_left, berries,  health, hydration, warmth, wood,
+            rocks, campfire_health, time), font=("Arial", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
@@ -206,7 +246,7 @@ def tick_update():
     if warmth >= 50:
         warmth = 50
 
-    if player.distance(fire) <= 15 and heat == True:
+    if player.distance(fire) <= 15 and heat:
         warmth += 2
 
     if stick_health <= 0:
