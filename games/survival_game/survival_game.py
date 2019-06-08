@@ -178,6 +178,9 @@ def tick_update():
 
         if zombie.xcor() < player.xcor():
             zombie.setpos(zombie.xcor() + 7, zombie.ycor())
+    else:
+        zombie.hideturtle()
+        zombie_attack = False
 
     if time >= 12:
         wn.bgcolor('Dim Gray')
