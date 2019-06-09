@@ -17,5 +17,3 @@ def grid(step, cellnumber):
         turtle.setpos(x, -y)
         x=x-step
 grid(20, 6)
-        
-        
