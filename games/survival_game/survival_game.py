@@ -1,5 +1,6 @@
 import turtle
 import random
+from turtle import Turtle
 
 wn = turtle.Screen()
 wn.bgcolor('Sea Green')
@@ -55,14 +56,18 @@ fire.penup()
 
 zombie = turtle.Turtle()
 zombie.hideturtle()
-zombie.color('green')
+zombie.color('Olive Drab')
 zombie.shape('circle')
 zombie.turtlesize(2)
 zombie.penup()
 zombie.setpos(random.randint(-275, 275), random.randint(-275, 275))
 
+wasted_screen = turtle.Turtle()
+wasted_screen.hideturtle()
+
 
 def up():
+
     player.setpos(player.xcor(), player.ycor() + 5)
 
 
@@ -168,16 +173,16 @@ def tick_update():
         zombie.showturtle()
         zombie_attack = True
         if zombie.ycor() > player.ycor():
-            zombie.setpos(zombie.xcor(), zombie.ycor() - 7)
+            zombie.setpos(zombie.xcor(), zombie.ycor() - 10)
 
         if zombie.ycor() < player.ycor():
-            zombie.setpos(zombie.xcor(), zombie.ycor() + 7)
+            zombie.setpos(zombie.xcor(), zombie.ycor() + 10)
 
         if zombie.xcor() > player.xcor():
-            zombie.setpos(zombie.xcor() - 7, zombie.ycor())
+            zombie.setpos(zombie.xcor() - 10, zombie.ycor())
 
         if zombie.xcor() < player.xcor():
-            zombie.setpos(zombie.xcor() + 7, zombie.ycor())
+            zombie.setpos(zombie.xcor() + 10, zombie.ycor())
     else:
         zombie.hideturtle()
         zombie_attack = False
@@ -215,11 +220,10 @@ def tick_update():
         health -= 1
 
     if health <= 0:
-        turtle.hideturtle()
-        turtle.penup()
-        turtle.setpos(-110, 0)
-        turtle.color('red')
-        turtle.write("WASTED", font=("Arial", 45, "normal"))
+        wasted_screen.penup()
+        wasted_screen.setpos(-110, 0)
+        wasted_screen.color('red')
+        wasted_screen.write("WASTED", font=("Arial", 45, "normal"))
 
     turtle.undo()
     turtle.hideturtle()
@@ -264,7 +268,7 @@ def tick_update():
         rock.setpos(random.randint(-275, 275), random.randint(-275, 275))
         rock_health = random.randint(1, 5)
 
-    turtle.ontimer(tick_update, 1000)
+    turtle.ontimer(tick_update, 1)
 
 
 turtle.onkeypress(up, 'Up')

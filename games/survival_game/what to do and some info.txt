@@ -15,15 +15,27 @@ Try to survive for as long as you can!
 
 .To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree (the triangle), and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
 
-.At night, a zombie will apear. he will slowly crawl toward you, and if he touches you you will loose health fast.
+.At night, a zombie will appear. he will slowly crawl toward you, and if he touches you you will loose health fast.
 
-.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater that ten it will not go ever ten.
+.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater than ten it will not go over ten.
 
+.If warmth, hydration, or food left ever go to zero, your health will go down.
+
+.If health is zero WASTED will appear and that mean you are dead.
+
+
+
+
+
+
+
+side notes: .WASTED screen bug has been fixed
+	    .zombie color changed
+	    .small bug fixs
 
 
 
 Planned Updates:
-(WASTED screen bug fix)
 (better graphics)
 (weapons to fight the zombie)
 (one single action key to replace w, s, r, c, 1, a, exc.)
