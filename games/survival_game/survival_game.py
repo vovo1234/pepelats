@@ -1,6 +1,5 @@
 import turtle
 import random
-from turtle import Turtle
 
 wn = turtle.Screen()
 wn.bgcolor('Sea Green')
@@ -67,7 +66,6 @@ wasted_screen.hideturtle()
 
 
 def up():
-
     player.setpos(player.xcor(), player.ycor() + 5)
 
 
@@ -158,20 +156,21 @@ hydration = 50
 warmth = 50
 campfire_health = 0
 time = 0
-night = False
 zombie_attack = False
 
 
 def tick_update():
     global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health,\
-        campfire_health, heat, time, night, zombie_attack
+        campfire_health, heat, time, zombie_attack
     food_left -= 1
     hydration -= 1
     time += 1
 
-    if night is True:
-        zombie.showturtle()
+    if time >= 12:
+        wn.bgcolor('Dim Gray')
+        warmth -= 1
         zombie_attack = True
+        zombie.showturtle()
         if zombie.ycor() > player.ycor():
             zombie.setpos(zombie.xcor(), zombie.ycor() - 10)
 
@@ -187,15 +186,8 @@ def tick_update():
         zombie.hideturtle()
         zombie_attack = False
 
-    if time >= 12:
-        wn.bgcolor('Dim Gray')
-        warmth -= 1
-        night = True
-        zombie_attack = True
-
-    if zombie_attack is True:
-        if zombie.distance(player) < 30:
-            health -= 1
+    if zombie_attack is True and zombie.distance(player) < 30:
+        health -= 1
 
     if health > 10:
         health = 10
@@ -268,7 +260,7 @@ def tick_update():
         rock.setpos(random.randint(-275, 275), random.randint(-275, 275))
         rock_health = random.randint(1, 5)
 
-    turtle.ontimer(tick_update, 1)
+    turtle.ontimer(tick_update, 1000)
 
 
 turtle.onkeypress(up, 'Up')

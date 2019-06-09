@@ -40,5 +40,6 @@ Planned Updates:
 (weapons to fight the zombie)
 (one single action key to replace w, s, r, c, 1, a, exc.)
 (better inventory system)
+(world island generator(sometimes will give you a ice biome or a sand biome))
 
 Email basil.solovyev@gmail.com, or leave a issue on the "issue" section of Github if there are any bugs.
