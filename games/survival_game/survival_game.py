@@ -1,5 +1,6 @@
 import turtle
 import random
+import time as time
 
 wn = turtle.Screen()
 wn.bgcolor('Sea Green')
@@ -203,24 +204,40 @@ def craft_axe():
         axe = True
 
 
+zombie_health = 7
+
+
+def attack():
+    global zombie_health
+    if player.distance(zombie) < 40:
+        zombie_health -= 1
+
+
 food_left = 50
 health = 10
 hydration = 50
 warmth = 50
 campfire_health = 0
-time = 0
+game_time = 0
 zombie_attack = False
+start = time.time()
 
 
 def tick_update():
     global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health,\
-        campfire_health, heat, time, zombie_attack
+        campfire_health, heat, game_time, zombie_attack, zombie_health
     food_left -= 1
     hydration -= 1
-    time += 1
+    game_time += 1
     fire.shape('campfire2.gif')
 
-    if time >= 12:
+    if zombie_health <= 0:
+        zombie_health = 7
+        zombie.hideturtle()
+        zombie.setpos(random.randint(-275, 275), random.randint(-275, 275))
+        zombie.showturtle()
+
+    if game_time >= 12:
         wn.bgcolor('Dim Gray')
         warmth -= 1
         zombie_attack = True
@@ -253,8 +270,8 @@ def tick_update():
     if food_left >= 45 and hydration >= 45:
         health += 1
 
-    if time >= 24:
-        time = 0
+    if game_time >= 24:
+        game_time = 0
         wn.bgcolor('Sea Green')
 
     if heat is True:
@@ -272,7 +289,12 @@ def tick_update():
         wasted_screen.penup()
         wasted_screen.setpos(-110, 0)
         wasted_screen.color('red')
+        end = time.time()
+        final_time = (end - start) / 24
         wasted_screen.write("WASTED", font=("Arial", 45, "normal"))
+        wasted_screen.setpos(-150, -35)
+        wasted_screen.write("You Survived For: %s Days" % (final_time), font=("Arial", 15, "normal"))
+        time.sleep(10000)
 
     turtle.undo()
     turtle.hideturtle()
@@ -281,7 +303,7 @@ def tick_update():
     turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s,'
           ' campfire health: %s, time: %s'
             % (food_left, berries,  health, hydration, warmth, wood,
-            rocks, campfire_health, time), font=("Arial", 7, "normal"))
+            rocks, campfire_health, game_time), font=("Arial", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
@@ -333,6 +355,7 @@ turtle.onkeypress(collect_rock, 'r')
 turtle.onkeypress(build_campfire, 'c')
 turtle.onkeypress(craft_axe, 'a')
 turtle.onkeypress(collect_tree, 'w')
+turtle.onkeypress(attack, 'space')
 
 tick_update()
 

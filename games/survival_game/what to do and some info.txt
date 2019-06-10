@@ -15,7 +15,7 @@ Try to survive for as long as you can!
 
 .To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree (the triangle with a brown stem), and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
 
-.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast.
+.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie touch him and press space. He has 7 health and when they go down to zero, a new one will spawn randomly on the map.
 
 .To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater than ten it will not go over ten.
 
@@ -25,9 +25,7 @@ Try to survive for as long as you can!
 
 
 
-
-
-
+IF ANYONE KNOWS HOW TO FIX CHOPPY PERFORMANCE, (it is caused by the tick update function being so long) PLEEEEEASE TELL ME!!!!!!!
 
 
 
@@ -35,12 +33,10 @@ side notes: .WASTED screen bug has been fixed
 	    .zombie color changed
 	    .small bug fixs
 
-
-
 Planned Updates:
 (weapons to fight the zombie)
 (one single action key to replace w, s, r, c, 1, a, exc.)
 (better inventory system)
-(world island generator(sometimes will give you a ice biome or a sand biome))
+(world island generator(sometimes will give you a ice biome or a beach biome or like a dessert biome))
 
 Email basil.solovyev@gmail.com, or leave a issue on the "issue" section of Github if there are any bugs.
