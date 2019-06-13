@@ -52,6 +52,7 @@ def onspace():
     vy = 0
 
 def drawground():
+    # draw ground line
     turtle.color("green")
     global ground_level
     turtle.penup()
@@ -59,21 +60,24 @@ def drawground():
     turtle.pendown()
     turtle.setpos(500, ground_level)
     turtle.penup()
+
+    # draw marks
     ruler_x = -500
     ruler_y = ground_level
 
-    for i in range(10):
+    while ruler_x - 500:
         turtle.setpos (ruler_x, ruler_y)
         turtle.pendown()
         turtle.setpos(ruler_x, ruler_y - 10)
+        turtle.write(ruler_x)
         turtle.penup()
         ruler_x = ruler_x + 50
-
 
 drawground()
 update()
 
-# The turtle.py for Python 2.7 only defines onkey() -- the onkeypress() variant was added in Python 3 (as was a synonym for onkey() called onkeyrelease())
+# The turtle.py for Python 2.7 only defines onkey() -- the onkeypress() variant was added in Python 3
+# (as was a synonym for onkey() called onkeyrelease())
 turtle.onkey(onspace, 'space' )
 
 turtle.listen( )
