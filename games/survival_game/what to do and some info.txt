@@ -3,30 +3,40 @@ Try to survive for as long as you can!
 
 .Every object beside the pond and the tree have health. Once this health goes to 0, it will spawn a new one of those objects somewhere on the map, and its health is reset.
 
-.To raise your food left, collect berries by walking up and touching the bush (the green circle), and pressing "b". After that press "1" to eat them.
+.To raise your food left, collect berries by walking up and touching the bush (the green circle with red dots), and pressing "b". After that press "1" to eat them.
 
-.To collect rocks, walk up and touch the rock, and then press "r".
+.To collect rocks, walk up and touch the rock (grey blob), and then press "r".
 
 .To raise your hydration walk into the pond (the blue circle), but watch your warmth. when in the pond your warmth will go down, and hydration will go up. The pond has no health so it is a infinite source of water.
 
 .When the background goes gray, that means its night. It will start at 12 time, and end at time 24. This will also lower you warmth.
 
-.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press c. A campfire will appear were you are standing. You can only have 1 campfire at once. After you have built one, it will only last 30 seconds. Then you will have to build a new one.
+.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press c. You must stand near it. A campfire will appear were you are standing. You can only have 1 campfire at once. After you have built one, it will only last 30 seconds. Then you will have to build a new one.
 
-.To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree (the triangle), and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
+.To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree (the triangle with a brown stem), and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
 
-.At night, a zombie will apear. he will slowly crawl toward you, and if he touches you you will loose health fast.
+.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie touch him and press space. He has 7 health and when they go down to zero, a new one will spawn randomly on the map.
 
-.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater that ten it will not go ever ten.
+.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater than ten it will not go over ten.
+
+.If warmth, hydration, or food left ever go to zero, your health will go down.
+
+.If health is zero WASTED will appear and that mean you are dead.
 
 
 
+IF ANYONE KNOWS HOW TO FIX CHOPPY PERFORMANCE, (it is caused by the tick update function being so long) PLEEEEEASE TELL ME!!!!!!!
+
+
+
+side notes: .WASTED screen bug has been fixed
+	    .zombie color changed
+	    .small bug fixs
 
 Planned Updates:
-(WASTED screen bug fix)
-(better graphics)
 (weapons to fight the zombie)
 (one single action key to replace w, s, r, c, 1, a, exc.)
 (better inventory system)
+(world island generator(sometimes will give you a ice biome or a beach biome or like a dessert biome))
 
 Email basil.solovyev@gmail.com, or leave a issue on the "issue" section of Github if there are any bugs.
