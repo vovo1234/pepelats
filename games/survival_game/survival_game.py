@@ -96,8 +96,8 @@ wasted_screen.hideturtle()
 
 
 def up():
-    player.shape('player12.gif')
     player.setpos(player.xcor(), player.ycor() + 5)
+    player.shape('player12.gif')
     player.shape('player11.gif')
     if axe is True:
         player.shape('player13.gif')
@@ -106,8 +106,8 @@ def up():
 
 
 def down():
-    player.shape('player32.gif')
     player.setpos(player.xcor(), player.ycor() - 5)
+    player.shape('player32.gif')
     player.shape('player31.gif')
     if axe is True:
         player.shape('player33.gif')
@@ -116,8 +116,8 @@ def down():
 
 
 def left():
-    player.shape('player22.gif')
     player.setpos(player.xcor() - 5, player.ycor())
+    player.shape('player22.gif')
     player.shape('player21.gif')
     if axe is True:
         player.shape('player43.gif')
@@ -126,8 +126,8 @@ def left():
 
 
 def right():
-    player.shape('player42.gif')
     player.setpos(player.xcor() + 5, player.ycor())
+    player.shape('player42.gif')
     player.shape('player41.gif')
     if axe is True:
         player.shape('player23.gif')
@@ -135,43 +135,34 @@ def right():
         player.shape('player40.gif')
 
 
-berries = 0
 bush_health = random.randint(1, 5)
+zombie_health = 7
+wood = 0
+stick_health = random.randint(1, 3)
+rocks = 0
+rock_health = random.randint(1, 2)
+heat = False
 
 
-def collect_berries():
-    global berries, bush_health
+def action():
+    global berries, bush_health, wood, stick_health, rocks, rock_health, wood, axe, zombie_health
     if player.distance(bush) < 50:
         berries += 1
         bush_health -= 1
-
-
-wood = 0
-stick_health = random.randint(1, 3)
-
-
-def collect_stick():
-    global wood, stick_health
     if player.distance(stick) < 40:
         wood += 1
         stick_health -= 1
-
-
-rocks = 0
-rock_health = random.randint(1, 2)
-
-
-def collect_rock():
-    global rocks, rock_health
     if player.distance(rock) < 20:
         rocks += 1
         rock_health -= 1
-
-
-def collect_tree():
-    global wood, axe
     if player.distance(tree) < 50 and axe is True:
         wood += 2
+    if player.distance(zombie) < 40:
+        zombie_health -= 1
+
+
+berries = 0
+food_left = 50
 
 
 def eat():
@@ -179,9 +170,6 @@ def eat():
     if berries > 0:
         food_left += 10
         berries -= 1
-
-
-heat = False
 
 
 def build_campfire():
@@ -204,16 +192,6 @@ def craft_axe():
         axe = True
 
 
-zombie_health = 7
-
-
-def attack():
-    global zombie_health
-    if player.distance(zombie) < 40:
-        zombie_health -= 1
-
-
-food_left = 50
 health = 10
 hydration = 50
 warmth = 50
@@ -221,15 +199,31 @@ campfire_health = 0
 game_time = 0
 zombie_attack = False
 start = time.time()
+alive = True
 
 
 def tick_update():
     global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health,\
-        campfire_health, heat, game_time, zombie_attack, zombie_health
+        campfire_health, heat, game_time, zombie_attack, zombie_health, alive, rocks, wood
     food_left -= 1
     hydration -= 1
     game_time += 1
     fire.shape('campfire2.gif')
+
+    if hydration <= 0:
+        hydration = 0
+
+    if warmth <= 0:
+        warmth = 0
+
+    if food_left <= 0:
+        food_left
+
+    if rocks <= 0:
+        rocks = 0
+
+    if wood <= 0:
+        wood = 0
 
     if zombie_health <= 0:
         zombie_health = 7
@@ -292,18 +286,19 @@ def tick_update():
         end = time.time()
         final_time = (end - start) / 24
         wasted_screen.write("WASTED", font=("Arial", 45, "normal"))
-        wasted_screen.setpos(-150, -35)
-        wasted_screen.write("You Survived For: %s Days" % (final_time), font=("Arial", 15, "normal"))
-        time.sleep(10000)
+        wasted_screen.setpos(-100, -35)
+        wasted_screen.write("You Survived For: %s Days" % (int(final_time)), font=("Arial", 15, "normal"))
+        alive = False
+        health = 0
 
     turtle.undo()
     turtle.hideturtle()
     turtle.penup()
     turtle.setpos(-300, 270)
     turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s,'
-          ' campfire health: %s, time: %s'
-            % (food_left, berries,  health, hydration, warmth, wood,
-            rocks, campfire_health, game_time), font=("Arial", 7, "normal"))
+    ' campfire health: %s, time: %s'
+        % (food_left, berries,  health, hydration, warmth, wood,
+        rocks, campfire_health, game_time), font=("Arial", 7, "normal"))
 
     if food_left >= 50:
         food_left = 50
@@ -341,21 +336,18 @@ def tick_update():
 
     fire.shape('campfire1.gif')
 
-    turtle.ontimer(tick_update, 1000)
+    if alive is True:
+        turtle.ontimer(tick_update, 1000)
 
 
 turtle.onkeypress(up, 'Up')
 turtle.onkeypress(down, 'Down')
 turtle.onkeypress(left, 'Left')
 turtle.onkeypress(right, 'Right')
-turtle.onkeypress(collect_berries, 'b')
+turtle.onkeypress(action, 'e')
 turtle.onkeypress(eat, '1')
-turtle.onkeypress(collect_stick, 's')
-turtle.onkeypress(collect_rock, 'r')
-turtle.onkeypress(build_campfire, 'c')
-turtle.onkeypress(craft_axe, 'a')
-turtle.onkeypress(collect_tree, 'w')
-turtle.onkeypress(attack, 'space')
+turtle.onkeypress(build_campfire, '2')
+turtle.onkeypress(craft_axe, '3')
 
 tick_update()
 
