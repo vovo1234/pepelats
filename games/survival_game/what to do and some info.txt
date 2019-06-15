@@ -1,27 +1,29 @@
 How to Play and Survival Mechanics:
 Try to survive for as long as you can!
 
-.Every object beside the pond and the tree have health. Once this health goes to 0, it will spawn a new one of those objects somewhere on the map, and its health is reset.
+.Every object beside the pond and the tree have health. Once its health goes to 0, it will spawn another one of that object somewhere on the map, and also its health is reset.
 
-.To raise your food left, collect berries by walking up and touching the bush (the green circle with red dots), and pressing "b". After that press "1" to eat them.
+.To raise your 'food left', collect berries by walking to the bush, and pressing "e". After press "1" to eat them.
 
-.To collect rocks, walk up and touch the rock (grey blob), and then press "r".
+.To collect rocks, walk up and touch the rock, and then press "e".
 
-.To raise your hydration walk into the pond (the blue circle), but watch your warmth. when in the pond your warmth will go down, and hydration will go up. The pond has no health so it is a infinite source of water.
+.To raise your hydration walk into the pond, but watch your warmth. When in the pond your warmth will go down, and hydration will go up. The pond has no health so it is an infinite source of water.
 
-.When the background goes gray, that means its night. It will start at 12 time, and end at time 24. This will also lower you warmth.
+.When the background goes gray, that means its night. It will start when time is 12, and end at 24. This will also lower you warmth.
 
-.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press c. You must stand near it. A campfire will appear were you are standing. You can only have 1 campfire at once. After you have built one, it will only last 30 seconds. Then you will have to build a new one.
+.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press 2. You must stand where you want it to appear. You can only have 1 campfire at once. After you have built one, it will last 30 seconds until you will need a new one.
 
-.To get more wood faster build a axe. for this you need 7 stone, and 7 wood. Then you can walk up to the tree (the triangle with a brown stem), and press "w". this will give you 2 wood every press. The tree has no health so it is a infinite source of wood.
+.To get more wood faster build a axe. for this you need 7 stone, and 7 wood, then press "3" Then you can walk up to the pine tree, and press "e". this will give you 2 wood every press. The tree has no health so it is an infinite source of wood.
 
-.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie touch him and press space. He has 7 health and when they go down to zero, a new one will spawn randomly on the map.
+.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie touch him and press 'e'. He has 7 health, so hit it seven times to kill it. Once you have killed it, a new one will spawn randomly on the map.
 
-.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. if health is equal or greater than ten it will not go over ten.
+.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. If health is equal or greater than 10 it will not go over ten.
 
 .If warmth, hydration, or food left ever go to zero, your health will go down.
 
-.If health is zero WASTED will appear and that mean you are dead.
+.If health is zero WASTED will appear and that means you are dead.
+
+
 
 
 
@@ -35,8 +37,7 @@ side notes: .WASTED screen bug has been fixed
 
 Planned Updates:
 (weapons to fight the zombie)
-(one single action key to replace w, s, r, c, 1, a, exc.)
-(better inventory system)
+(better inventory system) - many
 (world island generator(sometimes will give you a ice biome or a beach biome or like a dessert biome))
 
 Email basil.solovyev@gmail.com, or leave a issue on the "issue" section of Github if there are any bugs.
