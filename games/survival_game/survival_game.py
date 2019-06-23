@@ -44,6 +44,8 @@ wn.addshape('images/zombie4.gif')
 wn.addshape('images/campfire1.gif')
 wn.addshape('images/campfire2.gif')
 
+wn.addshape('images/rad_away.gif')
+
 water = turtle.Turtle()
 water.shape('images/pond.gif')
 water.turtlesize(3)
@@ -88,7 +90,7 @@ zombie.setpos(random.randint(-275, 275), random.randint(-275, 275))
 
 rad_away = turtle.Turtle()
 rad_away.hideturtle()
-rad_away.shape('square')
+rad_away.shape('images/rad_away.gif')
 rad_away.turtlesize(1, 0.5)
 rad_away.penup()
 rad_away.setpos(random.randint(-275, 275), random.randint(-275, 275))
@@ -179,7 +181,7 @@ collect_rad_away = False
 
 def inspect_action():
     global collect_rad_away
-    if player.distance(rad_away) < 45:
+    if player.distance(rad_away) < 60:
         collect_rad_away = True
         rad_away.showturtle()
 
