@@ -1,4 +1,5 @@
 import turtle
+import math
 
 turtle.speed('fastest')
 
@@ -105,6 +106,7 @@ def increase_angle():
     draw_aim()
 
     turtle.onkey(increase_angle, 'Up') #Renable more calls once finished
+    modify_vx_vy()
 
 def decrease_angle():
     turtle.onkey(None, 'Down') #Disable more calls while running
@@ -114,6 +116,13 @@ def decrease_angle():
     draw_aim()
 
     turtle.onkey(decrease_angle, 'Down') #Renable more calls once finished
+    modify_vx_vy()
+
+
+def modify_vx_vy():
+    global vx0, vy0, velocity0, angle0
+    vx0 = velocity0 * math.cos(angle0)
+    vy0 = velocity0 * math.sin(angle0)
 
 def reset():
     # reset square coordinates to initial position
