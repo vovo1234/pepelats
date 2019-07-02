@@ -4,7 +4,7 @@ import time
 
 wn = turtle.Screen()
 wn.bgcolor('Sea Green')
-wn.title('Survive')
+wn.title('Chernobyl')
 
 wn.addshape('images/player11.gif')
 wn.addshape('images/player21.gif')
@@ -45,6 +45,8 @@ wn.addshape('images/campfire1.gif')
 wn.addshape('images/campfire2.gif')
 
 wn.addshape('images/rad_away.gif')
+
+wn.addshape('images/test_object.gif')
 
 water = turtle.Turtle()
 water.shape('images/pond.gif')
@@ -94,6 +96,11 @@ rad_away.shape('images/rad_away.gif')
 rad_away.turtlesize(1, 0.5)
 rad_away.penup()
 rad_away.setpos(random.randint(-275, 275), random.randint(-275, 275))
+
+test_object = turtle.Turtle()
+test_object.shape('circle')
+test_object.hideturtle()
+test_object.penup()
 
 player = turtle.Turtle()
 player.shape('images/player10.gif')
@@ -181,7 +188,7 @@ collect_rad_away = False
 
 def inspect_action():
     global collect_rad_away
-    if player.distance(rad_away) < 60:
+    if player.distance(rad_away) < 85:
         collect_rad_away = True
         rad_away.showturtle()
 
@@ -220,7 +227,7 @@ def craft_axe():
 def use_rad_away():
     global radiation, rad_aways, rad_away_health
     if rad_aways > 0:
-        radiation -= 90
+        radiation -= 180
         rad_aways -= 1
         rad_away_health -= 1
 
@@ -234,16 +241,18 @@ zombie_attack = False
 start = time.time()
 alive = True
 radiation = 0
+test_time = 0
 
 
 def tick_update():
     global food_left, berries, health, hydration, warmth, bush_health, stick_health, rock_health,\
         campfire_health, heat, game_time, zombie_attack, zombie_health, alive, rocks, wood, radiation,\
-        rad_away_health, rad_aways
+        rad_away_health, rad_aways, test_time
     food_left -= 1
     hydration -= 1
     game_time += 1
     radiation += 1
+    test_time += 1
     fire.shape('images/campfire2.gif')
 
     if rad_away_health <= 0:
@@ -254,13 +263,15 @@ def tick_update():
     if radiation <= 0:
         radiation = 0
 
-    if radiation >= 70:
+    if radiation >= 350:
         health -= 1
-        if radiation >= 100:
-            health -= 2
+        if radiation >= 500:
+            health -= 1
+            if radiation >= 100:
+                health -= 1
 
-    if radiation >= 100:
-        radiation = 100
+    if radiation >= 500:
+        radiation = 500
 
     if hydration <= 0:
         hydration = 0
@@ -306,6 +317,18 @@ def tick_update():
     else:
         zombie.hideturtle()
         zombie_attack = False
+
+    if test_time < 4 and player.xcor() == 300 and player.ycor() == 300:
+        wn.bgcolor('black')
+        test_object.shape('images/test_object.gif')
+        test_object.showturtle()
+        print('error player.Turtle() has hung. ec: 49 20 77 61 72'
+              ' 6e 65 64 20 79 6f 75 2e 20'
+              ' 54 68 65 72 65 20 68'
+              ' 65 72 65 2e 0d 0a')
+        time.sleep(0.1)
+        test_object.hideturtle()
+        wn.bye()
 
     if zombie_attack is True and zombie.distance(player) < 30:
         health -= 1
@@ -408,3 +431,12 @@ tick_update()
 turtle.listen()
 
 turtle.mainloop()
+
+
+# you're dropped in the middle Chernobyl. Use the objects you find around you survive.
+# 21 21 21 42 65 63 61 72 46 69 6b 6c 6c 6c 20 4f 69 69 66 66 66 69 20 54 48 48 6f 70
+# 6c 45 61 4c 69 65 65 72 45 49 6e 20 65 61 69 73 75 66 68 75 65 72 67 41 67 61 75 68
+# 67 69 75 64 67 44 57 46 47 44 41 46 20 52 6f 73 69 6f 4f 6f 6f 6f 64 73 66 68 68 6d
+# 20 54 48 65 79 79 79 66 68 75 66 64 73 0d 0a 61 72 68 55 46 64 73 68 20 48 65 72 72
+# 52 52 52 65 72 61 66 61 66 64 73 6a 66 67 79 75 79 73 75 61 66 67 67 75 61 66 47 41
+# 66 64 67 61 61 64 73 67 61 66 73 67 77 61 47 67 47 47 67 49 66 48 47 21 21 21
