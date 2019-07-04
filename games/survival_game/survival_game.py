@@ -46,7 +46,7 @@ wn.addshape('images/campfire2.gif')
 
 wn.addshape('images/rad_away.gif')
 
-wn.addshape('images/test_object.gif')
+wn.addshape('images/i_like_cookies.gif')
 
 water = turtle.Turtle()
 water.shape('images/pond.gif')
@@ -320,12 +320,13 @@ def tick_update():
 
     if test_time < 4 and player.xcor() == 300 and player.ycor() == 300:
         wn.bgcolor('black')
-        test_object.shape('images/test_object.gif')
+        test_object.shape('images/i_like_cookies.gif')
         test_object.showturtle()
-        print('error player.Turtle() has hung. ec: 49 20 77 61 72'
-              ' 6e 65 64 20 79 6f 75 2e 20'
-              ' 54 68 65 72 65 20 68'
-              ' 65 72 65 2e 0d 0a')
+        print('error: UhHhHh... Oh ya and the cake is a lie. ec: 4f 6b 20 66 69 72 73 74 20 6f 66 20 '
+              '61 6c 6c 2e 2e 2e 20 64 6f 6e 74 20 67 6f 20 73 6e 6f 6f 70 69 6e 20 61 72 6f 75 6e 64'
+              ' 20 63 6f 64 65 2e 20 73 65 63 6f 6e 64 20 49 20 77 61 72 6e 65 64 20 79 6f 75 20 74 68'
+              ' 65 72 65 20 68 65 72 65 2e 20 4f 68 20 79 61 20 61 6e 64 20 74 68 65 20 63 61 6b 65 20'
+              ' 69 73 20 61 20 6c 69 65')
         time.sleep(0.1)
         test_object.hideturtle()
         wn.bye()
