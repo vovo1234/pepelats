@@ -46,7 +46,7 @@ wn.addshape('images/campfire2.gif')
 
 wn.addshape('images/rad_away.gif')
 
-wn.addshape('images/i_like_cookies.gif')
+wn.addshape('images/dont_copyright_strike_me_plz.gif')
 
 water = turtle.Turtle()
 water.shape('images/pond.gif')
@@ -109,6 +109,9 @@ player.penup()
 
 wasted_screen = turtle.Turtle()
 wasted_screen.hideturtle()
+
+
+player.setpos(300, 300)
 
 
 def up():
@@ -320,14 +323,16 @@ def tick_update():
 
     if test_time < 4 and player.xcor() == 300 and player.ycor() == 300:
         wn.bgcolor('black')
-        test_object.shape('images/i_like_cookies.gif')
+        test_object.shape('images/dont_copyright_strike_me_plz.gif')
         test_object.showturtle()
-        print('error: UhHhHh... Oh ya and the cake is a lie. ec: 4f 6b 20 66 69 72 73 74 20 6f 66 20 '
-              '61 6c 6c 2e 2e 2e 20 64 6f 6e 74 20 67 6f 20 73 6e 6f 6f 70 69 6e 20 61 72 6f 75 6e 64'
-              ' 20 63 6f 64 65 2e 20 73 65 63 6f 6e 64 20 49 20 77 61 72 6e 65 64 20 79 6f 75 20 74 68'
-              ' 65 72 65 20 68 65 72 65 2e 20 4f 68 20 79 61 20 61 6e 64 20 74 68 65 20 63 61 6b 65 20'
-              ' 69 73 20 61 20 6c 69 65')
-        time.sleep(0.1)
+        print('error: 4f 6b 2e 2e 2e 20 77 68 79 20 79 6f 75 20 73 6e 6f'
+              ' 6f 70 69 6e 20 61 72 6f 75 6e 64 20 63 6f 64 65 3f 21 3f'
+              ' 21 3f 21 3f 21 3f 20 64 6f 6e 74 20 64 6f 20 74 68 61 74'
+              ' 20 6f 72 20 63 61 74 73 20 77 69 6c 6c 20 61 70 70 65 61'
+              ' 72 20 6f 6e 20 79 6f 75 72 20 73 63 72 65 65 6e 20 61 6e'
+              ' 64 20 63 72 61 73 68 20 79 6f 75 72 20 67 61 6d 65 2e 20'
+              ' 47 4f 54 20 49 54 3f 3f 21 3f 21 3f 21 3f 21 3f 21 21 3f 3f 21')
+        time.sleep(1)
         test_object.hideturtle()
         wn.bye()
 
@@ -371,8 +376,8 @@ def tick_update():
     turtle.hideturtle()
     turtle.penup()
     turtle.setpos(-300, 270)
-    turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s,'
-        ' campfire health: %s, time: %s, radiation: %s, rad-aways: %s'
+    turtle.write('food left: %s, berries: %s, health: %s, hydration: %s, warmth: %s, wood: %s, rocks: %s, '
+    'campfire health: %s, time: %s, radiation: %s, rad-aways: %s'
         % (food_left, berries,  health, hydration, warmth, wood,
         rocks, campfire_health, game_time, radiation, rad_aways), font=("Arial", 9, "normal"))
 
@@ -435,9 +440,4 @@ turtle.mainloop()
 
 
 # you're dropped in the middle Chernobyl. Use the objects you find around you survive.
-# 21 21 21 42 65 63 61 72 46 69 6b 6c 6c 6c 20 4f 69 69 66 66 66 69 20 54 48 48 6f 70
-# 6c 45 61 4c 69 65 65 72 45 49 6e 20 65 61 69 73 75 66 68 75 65 72 67 41 67 61 75 68
-# 67 69 75 64 67 44 57 46 47 44 41 46 20 52 6f 73 69 6f 4f 6f 6f 6f 64 73 66 68 68 6d
-# 20 54 48 65 79 79 79 66 68 75 66 64 73 0d 0a 61 72 68 55 46 64 73 68 20 48 65 72 72
-# 52 52 52 65 72 61 66 61 66 64 73 6a 66 67 79 75 79 73 75 61 66 67 67 75 61 66 47 41
-# 66 64 67 61 61 64 73 67 61 66 73 67 77 61 47 67 47 47 67 49 66 48 47 21 21 21
+
