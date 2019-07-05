@@ -111,9 +111,6 @@ wasted_screen = turtle.Turtle()
 wasted_screen.hideturtle()
 
 
-player.setpos(300, 300)
-
-
 def up():
     player.setpos(player.xcor(), player.ycor() + 5)
     player.shape('images/player12.gif')
