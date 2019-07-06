@@ -23,7 +23,7 @@ Try to survive for as long as you can!
 
 .If health is zero WASTED will appear and that means you are dead.
 
-.A new stat radiation will go up 1 tick every second. If radiation reaches 70 your health will start going down by 1 every second. If radiation reaches 100, you will start losing 3 health every second. To find a rad-away walk around pressing 'i' (i is the inspection key). Once you are near the pack and press 'i', a rad-away will appear. Press e while touching the pack to collect it. Then you can press 4 to use 1 rad-away which will take away 90 radiation.
+.A new stat radiation will go up 1 tick every second. If radiation reaches 350 your health will start going down by 1 every second. If radiation reaches 500, you will start losing 2 health every second. And if your radiation reachs 1000, you will lose 3 health every second. To find a rad-away, a thing that will lower radiation, walk around pressing 'i' (i is the inspection key). Once you are near the pack and press 'i', a rad-away will appear. Press e while touching the pack to collect it. Then you can press 4 to use 1 rad-away which will take away 180 radiation.
 
 
 
