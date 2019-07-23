@@ -1,6 +1,8 @@
 How to Play and Survival Mechanics:
 Try to survive for as long as you can!
 
+.To move use wasd (w up, a left, s down, d right)
+
 .Every object beside the pond and the tree have health. Once its health goes to 0, it will spawn another one of that object somewhere on the map, and also its health is reset.
 
 .To raise your 'food left', collect berries by walking to the bush, and pressing "e". After press "1" to eat them.
@@ -11,34 +13,33 @@ Try to survive for as long as you can!
 
 .When the background goes gray, that means its night. It will start when time is 12, and end at 24. This will also lower you warmth.
 
-.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press 2. You must stand where you want it to appear. You can only have 1 campfire at once. After you have built one, it will last 30 seconds until you will need a new one.
+.To raise your warmth, build a campfire by having 2 stones, and 2 wood, and then press 2. You must stand where you want it to appear. You can only have 1 campfire at a time. After you have built one, it will last 30 seconds until you will need a new one.
 
 .To get more wood faster build a axe. for this you need 7 stone, and 7 wood, then press "3" Then you can walk up to the pine tree, and press "e". this will give you 2 wood every press. The tree has no health so it is an infinite source of wood.
 
-.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie touch him and press 'e'. He has 7 health, so hit it seven times to kill it. Once you have killed it, a new one will spawn randomly on the map.
+.At night, a zombie will appear (the green blob entity with deformed size eyes). He will slowly crawl toward you, and if he touches you you will loose health fast. To fight the zombie be touching him and press 'e'. He has 7 health, so hit him seven times to kill it. Once you have killed it, a new one will spawn randomly on the map.
 
-.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 45 or greater. If health is equal or greater than 10 it will not go over ten.
+.To regain health, you will need to have the three stats warmth, hydration, and food left equal to 85 or greater. If health is equal or greater than 100 it will not go over 100. Same for the other stats.
 
 .If warmth, hydration, or food left ever go to zero, your health will go down.
 
-.If health is zero WASTED will appear and that means you are dead.
-
-.A new stat radiation will go up 1 tick every second. If radiation reaches 350 your health will start going down by 1 every second. If radiation reaches 500, you will start losing 2 health every second. And if your radiation reachs 1000, you will lose 3 health every second. To find a rad-away, a thing that will lower radiation, walk around pressing 'i' (i is the inspection key). Once you are near the pack and press 'i', a rad-away will appear. Press e while touching the pack to collect it. Then you can press 4 to use 1 rad-away which will take away 180 radiation.
-
-
-
-
-
-IF ANYONE KNOWS HOW TO FIX CHOPPY PERFORMANCE, (it is caused by the tick update function being so long) PLEEEEEASE TELL ME!!!!!!!
+.If health is zero WASTED will appear and that means you are dead. Under the message it will say how many days you have survived.
 
 
 
 side notes:
 .small bug fixes
+.tenor
+.credits
 
 Planned Updates:
-(M416 to fight the zombie that will be found by using the inspection key)
+(car/car parts)
+(make it downloadable from internet)
+(split program into modules [and classes])
+(starting screen/ starting screen logo)
+(built in tutorial)
+(graphic update)
 (world island generator(sometimes will give you a ice biome or a beach biome or like a dessert biome))
-(morph code not the arcade library)
+(morph code into the arcade library and other code stuff)
 
 Email basil.solovyev@gmail.com, or leave a issue on the "issue" section of Github if there are any bugs.
