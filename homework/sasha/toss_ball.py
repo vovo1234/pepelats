@@ -14,7 +14,7 @@ ay = -10
 dt = 1/20
 angle0 = 0
 velocity0 = 50
-time_scale = 2
+time_scale = 3
 is_started = False
 redraw_arrow = False
 

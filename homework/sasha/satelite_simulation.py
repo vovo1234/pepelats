@@ -1,15 +1,18 @@
 import turtle
 import math
-planet_radius = 6371000
+import datetime
+
+planet_radius = 1.1845E+06
+planet_mass =  1.30900E+22
 t = 0
-zoom = 25
+zoom = 2
 h = turtle.window_height()
 w = turtle.window_width()
 #coordinates
 x = 0
-y = planet_radius
+y = planet_radius*1.1
 #velocity
-vx = 11000
+vx = 825
 vy = 0
 #accelaration
 ax = 0
@@ -18,7 +21,7 @@ ay = -10
 dt = 1/20
 
 #speed control === yup lol(;
-time_scale = 10000
+time_scale = 500
 
 turtle.setworldcoordinates(-planet_radius*zoom, -planet_radius*zoom*h/w,
                            planet_radius*zoom, planet_radius*zoom*h/w)
@@ -40,13 +43,12 @@ turtle.end_fill()
 
 
 def do_step():
-    global x, y, vx, vy, ax, ay, dt, t
+    global x, y, vx, vy, ax, ay, dt, t, planet_mass
     dt_scaled = dt*time_scale
     x = x + vx * dt_scaled
     y = y + vy * dt_scaled
     t = t + dt_scaled 
     G = 6.67408e-11
-    planet_mass = 5.972e24
     r = math.sqrt(x*x + y*y)
     a = G*planet_mass/(r*r)
     ax = -x/r*a
@@ -61,7 +63,8 @@ def update():
     v = math.sqrt(vx*vx + vy*vy)
     orbiter.setpos(x,y)
     text_writer.undo()
-    text_writer.write(f'v = {v}\nt = {t}')
+    time_string = str(datetime.timedelta(seconds=t))
+    text_writer.write(f'v = {v}\nt = {time_string}')
     turtle.ontimer(update, (int(dt * 1000)))
 
 update()
